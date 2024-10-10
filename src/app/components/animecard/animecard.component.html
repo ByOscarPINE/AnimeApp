@@ -1,0 +1,7 @@
+<div class="card anime_card">
+  <i (click)="addToFavorites(animeInfo)" class="fa-regular fa-star" aria-hidden="true"></i>
+    <img [src]="animeInfo.images.jpg.image_url" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title text- text-center">{{animeInfo.title}}</h5>
+    </div>
+  </div>
