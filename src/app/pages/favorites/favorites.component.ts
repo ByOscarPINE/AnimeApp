@@ -15,6 +15,11 @@ export class FavoritesComponent {
   private _favoritesService = inject(FavoritesService);
 
   constructor() {
-    this.favorites = this._favoritesService.getLocalFavorites();
+    this.getFavorites;
+    // this.favorites = this._favoritesService.getLocalFavorites();
+  }
+
+  get getFavorites() {
+    return this._favoritesService.getLocalFavorites;
   }
 }

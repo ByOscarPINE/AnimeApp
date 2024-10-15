@@ -8,10 +8,10 @@ export class FavoritesService {
   myFavorites: any[] = [];
 
   constructor() { 
-    this.getLocalFavorites();
+    this.getLocalFavorites;
   }
 
-  getLocalFavorites(){
+  get getLocalFavorites(){
     return this.myFavorites = JSON.parse(localStorage.getItem('favorites') || '[]');
   }
 
@@ -21,10 +21,17 @@ export class FavoritesService {
 
     if (found) {
       this.myFavorites = this.myFavorites.filter(a => a.mal_id !== anime.mal_id);
+      localStorage.setItem('favorites', JSON.stringify(this.myFavorites));
+      return false;
     } else {
       this.myFavorites.push(anime);
+      localStorage.setItem('favorites', JSON.stringify(this.myFavorites));
+      return true;
     }
-    localStorage.setItem('favorites', JSON.stringify(this.myFavorites));
 
+  }
+
+  isFavorite(anime: any){
+    return !!this.myFavorites.find( a => a.mal_id === anime.mal_id);
   }
 }
