@@ -1,1 +1,21 @@
-<p>favorites works!</p>
+<div class="container-fluid">
+
+    <div class="row">
+      @for (favorite of favorites; track $index) {
+        <div class="col-6 col-sm-4 col-md-3 col-lg-2 col-xl-2 mt-3">
+          <app-animecard [animeInfo]="favorite"></app-animecard>
+        </div>
+      }@empty {
+        <div class="offset-6 col-2 mt-5">
+          <div class="spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            </div>
+        </div>
+      }
+    </div>
+  </div>

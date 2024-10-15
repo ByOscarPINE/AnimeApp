@@ -16,7 +16,15 @@ export class FavoritesService {
   }
 
   addToFavorites(anime: any){
-    this.myFavorites.push(anime);
+
+    const found = this.myFavorites.find( a => a.mal_id === anime.mal_id);
+
+    if (found) {
+      this.myFavorites = this.myFavorites.filter(a => a.mal_id !== anime.mal_id);
+    } else {
+      this.myFavorites.push(anime);
+    }
     localStorage.setItem('favorites', JSON.stringify(this.myFavorites));
+
   }
 }

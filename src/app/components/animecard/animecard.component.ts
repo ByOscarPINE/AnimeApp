@@ -12,6 +12,7 @@ export class AnimecardComponent {
   private _favoritesService = inject(FavoritesService);
   @Input() animeInfo: any = {};
 
+
   addToFavorites(anime: any) {
     this._favoritesService.addToFavorites(anime);
   }
